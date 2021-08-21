@@ -1,5 +1,5 @@
-// Release 1
-// Take upto 2 numbers from user as string and display the sum
+// Release 2
+// Take unlimited numbers
 
 import java.util.Scanner;
 
@@ -7,19 +7,15 @@ class StringCalculator
 {
 	public void Add(String numbers)
 	{
-		numbers = numbers.replaceAll(" ", "");   // Removes spaces
-		if(numbers.length() == 0)
+		int sum = 0;
+		for(int i = 0; i < numbers.length(); i++)
 		{
-			System.out.println("The sum is 0");
+			if(Character.isDigit(numbers.charAt(i)))
+			{
+				sum += Character.getNumericValue(numbers.charAt(i));
+			}
 		}
-		else if(numbers.length() == 1)
-		{
-			System.out.println("The sum is " + numbers);
-		}
-		else
-		{
-			System.out.println("The sum is " + (Character.getNumericValue(numbers.charAt(0)) + Character.getNumericValue(numbers.charAt(2))));   // Assuming that there's a comma in between the two numbers
-		}
+		System.out.println("The sum is " + sum);
 	}
 }
 
