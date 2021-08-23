@@ -1,5 +1,5 @@
-// Release 3.1
-// Detecting multi digit numbers between delimeters
+// Release 4
+// Ignoring numbers bigger than 1000
 
 import java.util.Scanner;
 
@@ -8,14 +8,18 @@ class StringCalculator
 	public void Add(String numbers, char del)
 	{
 		numbers = numbers.replaceAll(" ", "");
-		int sum = 0;
+		int inum, sum = 0;
 		String num = "";
 		for(int i = 0; i < numbers.length(); i++)
 		{
 			if(i == numbers.length() - 1)
 			{
 				num += numbers.charAt(i);
-				sum += Integer.parseInt(num);
+				inum = Integer.parseInt(num);
+				if(inum <= 1000)
+				{
+					sum += inum;
+				}
 			}
 			else if(numbers.charAt(i) != ',' && numbers.charAt(i) != del)
 			{
@@ -23,7 +27,11 @@ class StringCalculator
 			}
 			else
 			{
-				sum += Integer.parseInt(num);
+				inum = Integer.parseInt(num);
+				if(inum <= 1000)
+				{
+					sum += inum;
+				}
 				num = "";
 			}
 		}
