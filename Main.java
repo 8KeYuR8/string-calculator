@@ -1,5 +1,5 @@
-// Release 3
-// Custom delimeter
+// Release 3.1
+// Detecting multi digit numbers between delimeters
 
 import java.util.Scanner;
 
@@ -9,11 +9,22 @@ class StringCalculator
 	{
 		numbers = numbers.replaceAll(" ", "");
 		int sum = 0;
+		String num = "";
 		for(int i = 0; i < numbers.length(); i++)
 		{
-			if(numbers.charAt(i) != ',' && numbers.charAt(i) != del)
+			if(i == numbers.length() - 1)
 			{
-				sum += Character.getNumericValue(numbers.charAt(i));
+				num += numbers.charAt(i);
+				sum += Integer.parseInt(num);
+			}
+			else if(numbers.charAt(i) != ',' && numbers.charAt(i) != del)
+			{
+				num += numbers.charAt(i);
+			}
+			else
+			{
+				sum += Integer.parseInt(num);
+				num = "";
 			}
 		}
 		System.out.println("The sum is " + sum);
