@@ -6,3 +6,5 @@ And I changed it again...
 
 final check
 abcd
+
+with pipeline
